@@ -1,0 +1,20 @@
+<ion-view view-title="Top 5 Cars to Own"> 
+    <ion-content ng-controller="getListByPref">
+        <div data-ng-init="getList();"></div>
+        <div>
+            <ion-list>
+                <div class="item item-divider">
+                    <h2 align="center">Car List</h2>
+                </div>
+                <ion-item class="item item-avatar" ng-repeat="car in cars" 
+                          ui-sref="car({ carId: car.Id})">
+                    <img src="http://edvalas.cloudapp.net/images.php?Id={{ car.Id }}">
+                    <h2 align="center">{{ car.Name }} {{car.Model}}</h2>
+                    <p align="center">{{ car.CarYear }}</p>
+                </ion-item>
+            </ion-list>
+            
+            <button class="button button-block button-calm" ng-click="getList();">Refresh List</button>
+        </div>
+    </ion-content>
+</ion-view>

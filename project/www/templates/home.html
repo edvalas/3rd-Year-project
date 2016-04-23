@@ -1,0 +1,28 @@
+<ion-view view-title="Home"> 
+			<ion-content ng-controller="mySearch">
+                <button class="button button-block button-balanced" ui-sref="allcars">All Cars</button>
+                <button class="button button-block button-assertive" ui-sref="list1">Top 5 to Own</button>
+                <button class="button button-block button-calm" ui-sref="list2">Top 5 Most Expensive Cars</button>
+                <button class="button button-block button-royal" ui-sref="history">History</button>
+                <br>
+                
+                <div class="list">
+                    <div class="item item-input-inset">
+                        <label class="item-input-wrapper">
+                            <input type="text" ng-model="name">
+                        </label>
+                        <button class="button button-small" ng-click="search()">
+                            Search
+                        </button>
+                        <button class="button button-small" ng-click="clear()">Clear</button>
+                    </div>
+                </div>
+                
+                <div class="list list-inset" id="div3" ng-repeat="x in result">
+                    <div class="item" ui-sref="car({carId: x.Id})">
+                        <h2 align="center">{{x.Name}} {{x.Model}}</h2>
+                    </div>
+                </div>
+                
+			</ion-content>
+		</ion-view>

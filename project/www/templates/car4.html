@@ -1,0 +1,48 @@
+<ion-view view-title="Nissan GTR"> 
+			<ion-content ng-controller="getCarById">
+                <div data-ng-init="vehicle=4; getData();"></div>
+				<div ng-repeat="car in cars">
+                    <div class="list card">
+
+                    <div class="item">
+                        <h2>Nissan</h2>
+                        <p>GTR R35</p>
+                    </div>
+
+                    <div class="item item-body">
+                        <img src="http://edvalas.cloudapp.net/images.php?Id=4" width="400" height="225">
+                        <p>
+                            <br>
+                            Name: {{car.Name}} {{car.Model}} | Car Year: {{car.CarYear}}
+                            <br>
+                            Engine Size: {{car.EngineSize}}L | Engine Type: {{car.EngineType}}
+                            <br>
+                            Fuel: {{car.FuelType}} | Doors: {{car.Doors}}
+                            <br>
+                            Preference: {{car.Preference}}
+                            <br>
+                            Price: €{{car.Price}}
+                        </p>
+                    </div>
+                        
+                    <div class="item item-input-inset" ng-controller="updatePrice">
+                        <label class="item-input-wrapper">
+                          <input type="number" placeholder="{{car.Price}}" ng-model="newPrice">
+                        </label>
+                        <button class="button button-small" ng-click="update()">
+                          Change Price
+                        </button>
+                    </div>
+                        
+                    <div class="item item-input-inset" ng-controller="updatePref">
+                        <label class="item-input-wrapper">
+                          <input type="number" placeholder="{{car.Preference}}" ng-model="newPref">
+                        </label>
+                        <button class="button button-small" data-ng-init="oldPref=car.Preference" ng-click="updatePref()">
+                          Change Preference
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </ion-content>
+    </ion-view>
